@@ -1,6 +1,6 @@
 {
   "name": "tabsync-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sync browser tabs instantly between desktop and mobile over local Wi-Fi — no cloud needed.",
   "bin": {
     "tabsync": "./bin/tabsync.js"
@@ -28,12 +28,12 @@
   },
   "author": "Jayant Navrange",
   "license": "MIT",
-  "homepage": "https://github.com/jayantur13/tabsync-local",
+  "homepage": "https://github.com/jayantur13/tabsync-cli",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jayantur13/tabsync-local.git"
+    "url": "git+https://github.com/jayantur13/tabsync-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/jayantur13/tabsync-local/issues"
+    "url": "https://github.com/jayantur13/tabsync-cli/issues"
   }
 }
