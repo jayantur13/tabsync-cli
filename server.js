@@ -34,12 +34,22 @@ function getLocalIP() {
 /** --- Utility: Fetch title from URL --- **/
 async function fetchTitle(url) {
   try {
-    const res = await fetch(url, { timeout: 5000 });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeout);
+
+    if (!res.ok) throw new Error("Non-200 response");
     const text = await res.text();
     const match = text.match(/<title>(.*?)<\/title>/i);
-    return match ? match[1].trim() : url;
+    return match ? match[1].trim() : new URL(url).hostname;
   } catch {
-    return url;
+    try {
+      return new URL(url).hostname; // fallback to domain
+    } catch {
+      return url;
+    }
   }
 }
 
