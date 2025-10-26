@@ -1,0 +1,39 @@
+{
+  "name": "tabsync-cli",
+  "version": "1.0.0",
+  "description": "Sync browser tabs instantly between desktop and mobile over local Wi-Fi — no cloud needed.",
+  "bin": {
+    "tabsync": "./bin/tabsync.js"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node bin/tabsync.js"
+  },
+  "keywords": [
+    "tabsync",
+    "local",
+    "websocket",
+    "express",
+    "sync",
+    "cli"
+  ],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "qrcode-terminal": "^0.12.0",
+    "ws": "^8.18.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Jayant Navrange",
+  "license": "MIT",
+  "homepage": "https://github.com/jayantur13/tabsync-local",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayantur13/tabsync-local.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jayantur13/tabsync-local/issues"
+  }
+}
