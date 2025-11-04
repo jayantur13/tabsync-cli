@@ -1,10 +1,14 @@
+<p align="center">
+  <img src="/assets/images/sync.png" width="80" />
+  <h2 align="center">TabSync CLI</h2>
+  <p align="center">
+  <b>TabSync CLI</b> lets you instantly share open browser tabs between your desktop and mobile — all over your local Wi-Fi, without the cloud.  
+  Run it as a simple CLI, scan a QR code, and you’re synced.
+  </p>
+</p>
 
-# TabSync CLI
-
-**TabSync CLI** lets you instantly share open browser tabs between your desktop and mobile — all over your local Wi-Fi, without the cloud.  
-Run it as a simple CLI, scan a QR code, and you’re synced.
-
-####  Install the extension, as the cli relies on Chrome/Edge [extension](https://github.com/jayantur13/tabsync-extension) to communicate data
+## Make sure to download the Chrome/Edge [extension](https://github.com/jayantur13/tabsync-extension) for CLI.
+> Alternative, electron based app [tabsync-desktop](https://github.com/jayantur13/tabsync-desktop]
 
 ---
 
@@ -17,7 +21,9 @@ npm install -g tabsync-cli
 # Start the local server
 tabsync
 ```
+
 Once started, the CLI will:
+
 - Detect your local IP address
 - Launch a lightweight Express + WebSocket server
 - Show a QR code — scan it on your mobile to open the TabSync page
@@ -28,7 +34,7 @@ Once started, the CLI will:
 
 - The server (server.js) keeps track of all connected devices and their open tabs.
 - Each device (desktop or mobile) connects via WebSocket and automatically syncs tab URLs.
-- When a device goes offline for more than 5 minutes, it’s cleaned up automatically and disappears from the screen (no refresh needed).
+- When a device goes offline for more than 5 minutes, it’s cleaned up automatically and disappears from the screen (may require refresh).
 - You can also add URLs manually using the input box on the web page.
 
 ---
@@ -36,15 +42,20 @@ Once started, the CLI will:
 ## CLI Options
 
 ```bash
-tabsync [options]
+Usage: tabsync [options]
 
 Options:
-  --no-qr        Skip showing the QR code
-  --help         Show help info
-```
-Example:
-```bash
-tabsync --no-qr
+  --port <num>         Use a specific port instead of a random one
+  --no-qr              Skip showing QR code
+  --env <path>         Load environment variables from a custom file
+  --version, --v       Show the current version
+  --help               Show this help message
+
+Examples:
+  tabsync
+  tabsync --port 3210
+  tabsync --env .env
+  tabsync --no-qr --port 8080
 ```
 
 ---
@@ -52,16 +63,18 @@ tabsync --no-qr
 ## Web Interface
 
 Open your browser at:
+
 ```bash
-http://<your-local-ip>:3210
+http://<your-local-ip>:port
 ```
+
 You’ll see:
 
 - A list of devices connected to your TabSync session
 - Their open tabs as clickable links
 - A field to add new URLs to sync instantly
 
-The UI updates in real time whenever devices connect, disconnect, or share new tabs.
+The UI updates in real time whenever devices connect, disconnect (may require refresh), or share new tabs.
 
 ---
 
@@ -75,7 +88,7 @@ The UI updates in real time whenever devices connect, disconnect, or share new t
 
 ## Auto Cleanup
 
-Inactive devices (no activity for 5 minutes) are automatically removed, and all clients update instantly — no refresh required.
+Inactive devices (no activity for 5 minutes) are automatically removed, and all clients update instantly (may require refresh).
 
 ## Stop the Server
 

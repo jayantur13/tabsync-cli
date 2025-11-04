@@ -12,7 +12,9 @@ app.use(express.json());
 
 const fetch = globalThis.fetch;
 
-const PORT = 3210;
+const PORT = process.env.TABSYNC_PORT
+  ? parseInt(process.env.TABSYNC_PORT)
+  : 3210;
 let WSPORT;
 
 /** --- Device store --- **/
@@ -165,7 +167,7 @@ wsServer.listen(0, () => {
     res.json({ ip: getLocalIP(), wsPort: WSPORT });
   });
 
-  app.listen(PORT, () => {
+  app.listen(PORT, "0.0.0.0", () => {
     const ip = getLocalIP();
     const showQR = !process.env.TABSYNC_NO_QR;
     const url = `http://${ip}:${PORT}`;

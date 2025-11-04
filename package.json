@@ -1,9 +1,9 @@
 {
   "name": "tabsync-cli",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Sync browser tabs instantly between desktop and mobile over local Wi-Fi — no cloud needed.",
   "bin": {
-    "tabsync": "./bin/tabsync.js"
+    "tabsync": "bin/tabsync.js"
   },
   "type": "module",
   "scripts": {
@@ -11,9 +11,10 @@
   },
   "keywords": [
     "tabsync",
-    "local",
-    "websocket",
-    "express",
+    "tabsync-cli",
+    "browser",
+    "productivity",
+    "sync-service",
     "sync",
     "cli"
   ],

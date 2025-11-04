@@ -113,8 +113,11 @@
             id === deviceId ? `💻 ${id} (You)` : id.startsWith("device-") ? `📱 ${id}` : id;
           deviceEl.innerHTML = `<h3>${title}</h3><div class="tabs"></div>`;
           const tabsDiv = deviceEl.querySelector(".tabs");
+          
+          // Sort tabs alphabetically by title (optional)
+        const sortedTabs = [...tabs].sort((a, b) => (a.title || "").localeCompare(b.title || ""));
 
-          tabs.forEach((tab) => {
+        sortedTabs.forEach((tab) => {
             const a = document.createElement("a");
             a.href = tab.url;
             a.target = "_blank";
