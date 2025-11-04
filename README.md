@@ -7,8 +7,7 @@
   </p>
 </p>
 
-## Make sure to download the Chrome/Edge [extension](https://github.com/jayantur13/tabsync-extension) for CLI.
-> Alternative, electron based app [tabsync-desktop](https://github.com/jayantur13/tabsync-desktop]
+> Make sure to download the Chrome/Edge [extension](https://github.com/jayantur13/tabsync-extension) for CLI or its alternative, electron based [tabsync-desktop](https://github.com/jayantur13/tabsync-desktop)
 
 ---
 
