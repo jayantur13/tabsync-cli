@@ -5,10 +5,14 @@ import cors from "cors";
 import os from "os";
 import qrcode from "qrcode-terminal";
 import http from "http";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const fetch = globalThis.fetch;
 
@@ -42,10 +46,12 @@ async function fetchTitle(url) {
     const res = await fetch(url, { signal: controller.signal });
     clearTimeout(timeout);
 
-    if (!res.ok) throw new Error("Non-200 response");
-    const text = await res.text();
+    if (!res.ok) return new URL(url).hostname;
     const match = text.match(/<title>(.*?)<\/title>/i);
-    return match ? match[1].trim() : new URL(url).hostname;
+    if (!match || !match[1]) {
+      return new URL(url).hostname; // avoid "Error"
+    }
+    return match[1].trim();
   } catch {
     try {
       return new URL(url).hostname; // fallback to domain
@@ -133,7 +139,7 @@ wsServer.listen(0, () => {
   });
 
   /** --- Express endpoints --- **/
-  app.use(express.static("public"));
+  app.use(express.static(path.join(__dirname, "public")));
 
   app.get("/devices", (req, res) => res.json(simplify(devices)));
 

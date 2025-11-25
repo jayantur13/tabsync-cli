@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.1.1 - _25.11.2025_
+
+**Release**
+
+- Use absolute static directory
+- Detect HTML with no title (more rigid)
+- Only treat HTTP failures as “Error”
+
 ## 1.1.0 - _04.11.2025_
 
 **Release**
