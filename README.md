@@ -11,10 +11,20 @@
 
 Download extension and alternative of CLI (Windows,Linux)
 
-<p>
- <a href="https://microsoftedge.microsoft.com/addons/detail/tabsync-local-browser-sync/clamejppcbpencfoggafhgamjjmihdhb" target="_blank"><img src="/assets/images/edge-store.png" width="236" height="62" alt="store-edge"/></a><br/>
-<a href="https://github.com/jayantur13/tabsync-desktop/releases" target="_blank"><img src="/assets/images/github-release.png" width="236" height="62" alt="gh-repo-store"/></a>
-</p>
+<table>
+  <tr>
+    <td>
+      <a href="https://microsoftedge.microsoft.com/addons/detail/tabsync-local-browser-sync/clamejppcbpencfoggafhgamjjmihdhb" target="_blank">
+        <img src="/assets/images/edge-store.png" width="236" />
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/jayantur13/tabsync-desktop/releases" target="_blank">
+        <img src="/assets/images/github-release.png" width="236" />
+      </a>
+    </td>
+  </tr>
+</table>
 
 > Sources [extension](https://github.com/jayantur13/tabsync-extension) and [tabsync-desktop](https://github.com/jayantur13/tabsync-desktop)
 
