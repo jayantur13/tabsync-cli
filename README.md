@@ -7,36 +7,37 @@
   </p>
 </p>
 
-## Quick Note
+##  Requirements
 
-Download extension and alternative of CLI (Windows,Linux)
+- Option 1. Download a Simple CLI
 
-<table>
-  <tr>
-    <td>
-      <a href="https://microsoftedge.microsoft.com/addons/detail/tabsync-local-browser-sync/clamejppcbpencfoggafhgamjjmihdhb" target="_blank">
-        <img src="/assets/images/edge-store.png" width="236" />
-      </a>
-    </td>
-    <td>
-      <a href="https://github.com/jayantur13/tabsync-desktop/releases" target="_blank">
-        <img src="/assets/images/github-release.png" width="236" />
-      </a>
-    </td>
-  </tr>
-</table>
+```bash
+  npm install -g tabsync-cli 
+  or
+  pip install tabsync-cli (planned)
+```
 
-> Sources [extension](https://github.com/jayantur13/tabsync-extension) and [tabsync-desktop](https://github.com/jayantur13/tabsync-desktop)
+- Option 2. Download Desktop App
+
+<a href="https://github.com/jayantur13/tabsync-desktop/releases" target="_blank">
+  <img src="/assets/images/github-release.png" width="236" />
+</a>
+   
+> Source[`tabsync-desktop`](https://github.com/jayantur13/tabsync-desktop)
+
+- Mandatory: Download Extension
+
+  <a href="https://microsoftedge.microsoft.com/addons/detail/tabsync-local-browser-s/hnfbmkdiaonenacjogpccahkckbfkjfj" target="_blank">
+    <img src="/assets/images/edge-store.png" width="236" />
+  </a>
+
+> Source[`tabsync-extension`](https://github.com/jayantur13/tabsync-extension)
 
 ---
 
-## Quick Start
+## Quick Start CLI
 
 ```bash
-# Install globally (recommended)
-npm install -g tabsync-cli
-
-# Start the local server
 tabsync
 ```
 
@@ -96,6 +97,13 @@ The UI updates in real time whenever devices connect, disconnect (may require re
 
 ---
 
+## Screenshot
+
+![tabsync-screenshot](/assets/images/tabsyncli.png "tcli")
+![tabsync-screenshot](/assets/images/tabsyncbrowser.png "tbrowser")
+
+---
+
 ## How It Works
 
 - server.js -> Express + WebSocket server handling connections and sync
@@ -116,14 +124,7 @@ Press Ctrl + C in the terminal to shut it down gracefully.
 
 ## Changelog
 
-What's fixed in v1.1.1:
-
-- Use absolute static directory
-- Detect HTML with no title (more rigid)
-- Only treat HTTP failures as “Error”
-- Above, fixed the port issue, now ports reflect immediately
-
-> For all the important changelog vist [Changelog](https://github.com/jayantur13/tabsync-cli/blob/main/Changelog.md)
+- For all the important changelog vist [Changelog](https://github.com/jayantur13/tabsync-cli/blob/main/Changelog.md)
 
 ## Contributing
 

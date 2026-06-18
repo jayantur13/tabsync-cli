@@ -1,16 +1,25 @@
 # Change Log
 
+## 1.1.2 - _19.06.2026_
+
+**Patch Release**
+
+- Some bug fixes
+- Device removal on close/disconnect
+- WebSocket cleanup improvements
+
 ## 1.1.1 - _25.11.2025_
 
-**Release**
+**Patch Release**
 
 - Use absolute static directory
 - Detect HTML with no title (more rigid)
 - Only treat HTTP failures as “Error”
+- Above, fixed the port issue, now ports reflect immediately
 
 ## 1.1.0 - _04.11.2025_
 
-**Release**
+**Minor Release**
 
 - Added more arguements
 
@@ -42,6 +51,6 @@ TABSYNC_NO_QR=0
 
 ## 1.0.1 - _26.10.2025_
 
-**Release**
+**Release {Patch}**
 
 - Initial release

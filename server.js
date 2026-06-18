@@ -88,9 +88,12 @@ setInterval(() => {
       removed++;
     }
   }
+
   if (removed > 0) {
     console.log(`🧹 Cleaned ${removed} inactive device(s).`);
+    broadcast();
   }
+
 }, CLEANUP_INTERVAL);
 
 /** --- WebSocket server (dynamic port) --- **/
@@ -106,7 +109,15 @@ wsServer.listen(0, () => {
         const data = JSON.parse(msg);
         const { deviceId, tabs } = data;
 
-        if (!deviceId || !Array.isArray(tabs) || tabs.length === 0) return;
+        ws.deviceId = deviceId;
+
+        if (!ws.deviceId || !Array.isArray(tabs)) return;
+
+        if (tabs.length === 0) {
+          delete devices[ws.deviceId];
+          broadcast();
+          return;
+        }
 
         // Deduplicate by URL
         const seen = new Set();
@@ -124,7 +135,7 @@ wsServer.listen(0, () => {
           processedTabs.push({ title, url: tab.url });
         }
 
-        devices[deviceId] = {
+        devices[ws.deviceId] = {
           tabs: processedTabs,
           lastSeen: Date.now(),
         };
@@ -132,6 +143,16 @@ wsServer.listen(0, () => {
         broadcast();
       } catch (err) {
         console.error("❌ WS parse error:", err.message);
+      }
+    });
+
+    ws.on("close", () => {
+      if (ws.deviceId) {
+        console.log("Device disconnected:", ws.deviceId);
+        delete devices[ws.deviceId];
+        broadcast();
+      } else {
+        console.log("Viewer disconnected");
       }
     });
 
@@ -179,6 +200,7 @@ wsServer.listen(0, () => {
     const url = `http://${ip}:${PORT}`;
 
     /** --- Logs & QR --- **/
+    console.log("=== Running CLI based server ===");
     console.log(`\n🧩 TabSync Local running at: ${url}`);
     console.log(`🌐 WebSocket on ws://${ip}:${WSPORT}`);
     if (showQR) {
